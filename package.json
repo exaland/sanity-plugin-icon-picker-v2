@@ -1,6 +1,6 @@
 {
-  "name": "sanity-plugin-icon-picker",
-  "version": "4.0.0",
+  "name": "sanity-plugin-icon-picker-v2",
+  "version": "1.0.0",
   "description": "An Icon Picker plugin for Sanity",
   "keywords": [
     "sanity",
@@ -10,16 +10,16 @@
     "custom input",
     "sanity field"
   ],
-  "homepage": "https://github.com/christopherafbjur/sanity-plugin-icon-picker#readme",
+  "homepage": "https://github.com/exaland/sanity-plugin-icon-picker-v2#readme",
   "bugs": {
-    "url": "https://github.com/christopherafbjur/sanity-plugin-icon-picker/issues"
+    "url": "https://github.com/exaland/sanity-plugin-icon-picker-v2/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christopherafbjur/sanity-plugin-icon-picker.git"
+    "url": "git+https://github.com/exaland/sanity-plugin-icon-picker-v2.git"
   },
   "license": "MIT",
-  "author": "Christopher Af Bjur",
+  "author": "Exaland Concept",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -63,7 +63,7 @@
     "react-icons": "^4.8.0",
     "react-virtualized-auto-sizer": "^1.0.5",
     "react-window": "^1.8.6",
-    "sanity": "^3",
+    "sanity": "^5.8.1",
     "styled-components": "^6.1.16"
   },
   "devDependencies": {
@@ -104,7 +104,7 @@
     "react": "^18.3 || ^19",
     "react-dom": "^18.3 || ^19",
     "react-is": "^18.3 || ^19",
-    "sanity": "^3"
+    "sanity": "^5.8.1"
   },
   "engines": {
     "node": ">=14"
@@ -113,5 +113,5 @@
     "react": "$react",
     "react-dom": "$react-dom"
   },
-  "sanityExchangeUrl": "https://www.sanity.io/plugins/icon-picker"
+  "sanityExchangeUrl": "https://www.sanity.io/plugins/icon-picker-v2"
 }
