@@ -1,10 +1,11 @@
+
 # sanity-plugin-icon-picker-v2
 
 > This is a **Sanity Studio v5** plugin.
 
 > Fork from
-> https://github.com/exaland/sanity-plugin-icon-picker-v2
-
+> https://github.com/christopherafbjur/sanity-plugin-icon-picker
+> 
 Icon picker for Sanity which let you select icons from a set of icon providers.
 
 ![image](https://github.com/exaland/sanity-plugin-icon-picker-v2/blob/main/promo.png?raw=true)
@@ -254,12 +255,12 @@ migrateIconName('alert-circle', 'fi', 'react');
 ## FAQ
 
 <details>
-  <summary>Can I use this plugin for Sanity Studio v2?</summary>
+  <summary>Can I use this plugin for Sanity Studio v4?</summary>
 
 Yes you can! Simply install the older version of this plugin
 
 ```sh
-npm install sanity-plugin-icon-picker-v2@2.1.0
+npm install sanity-plugin-icon-picker-v2
 ```
 
 Then refer to the [old documentation](https://github.com/exaland/sanity-plugin-icon-picker-v2/blob/72ba11830b73b729b6b3c1c254bde3c686032972/README.md) and follow everything except the install step.
