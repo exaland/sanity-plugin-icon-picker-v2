@@ -2,21 +2,22 @@ import { Card } from '@sanity/ui';
 import { useState } from 'react';
 import { IconContext } from 'react-icons';
 import { set, setIfMissing, unset } from 'sanity';
+
 import { ICON_HEIGHT, ICON_WIDTH } from '../constants';
 import { ALL_CONFIGURATIONS_PROVIDER } from '../constants/config';
 import { OptionsProvider } from '../hooks/useOptions';
 import { useQuery } from '../hooks/useQuery';
 import { useSelectedIcon } from '../hooks/useSelectedIcon';
+import type { IconObject, IconPickerOptions } from '../types';
 import { getProviders } from '../utils/helpers';
+import type { MenuClickCallback } from './Menu';
 import Menu, { Action } from './Menu';
 import Popup from './Popup';
+import type { SearchBarOnChange } from './SearchBar';
 import SearchBar from './SearchBar';
+import type { SearchResultsOnSelectCallback } from './SearchResults';
 import SearchResults from './SearchResults';
 import { TabList, TabPanel, Tabs } from './Tabs';
-import type { MenuClickCallback } from './Menu';
-import type { SearchBarOnChange } from './SearchBar';
-import type { SearchResultsOnSelectCallback } from './SearchResults';
-import type { IconObject, IconPickerOptions } from '../types';
 import type { ObjectInputProps } from 'sanity';
 
 const IconPicker = ({
@@ -37,7 +38,7 @@ const IconPicker = ({
 
   const setIcon: SearchResultsOnSelectCallback = (
     icon: IconObject,
-    ele: HTMLButtonElement
+    ele: HTMLButtonElement,
   ) => {
     if (selected && icon.name === selected.name) return unsetIcon();
 

@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+
 import { render } from '../../../test/utils';
 import { OptionsProvider } from '../../hooks/useOptions';
 import { TabList, TabPanel, Tabs } from '.';
@@ -16,7 +17,7 @@ const tabsRender = (ui: ReactElement) =>
 describe('TabList', () => {
   it('renders two tabs with correct titles', () => {
     const { getByRole, getAllByRole } = tabsRender(
-      <TabList providers={['f7', 'sa']} />
+      <TabList providers={['f7', 'sa']} />,
     );
 
     expect(getAllByRole('tab').length).toBe(2);
@@ -30,7 +31,7 @@ describe('TabPanel', () => {
     const { getByText } = tabsRender(
       <TabPanel provider="f7">
         <div>Child 1</div>
-      </TabPanel>
+      </TabPanel>,
     );
 
     expect(getByText('Framework7')).toBeDefined();
@@ -39,7 +40,7 @@ describe('TabPanel', () => {
     const { getByText } = tabsRender(
       <TabPanel provider="f7">
         <div>Child 1</div>
-      </TabPanel>
+      </TabPanel>,
     );
 
     expect(getByText('Child 1')).toBeDefined();
@@ -52,7 +53,7 @@ describe('Tabs', () => {
       <>
         <div>Child 1</div>
         <div>Child 2</div>
-      </>
+      </>,
     );
 
     expect(getByText('Child 1')).toBeDefined();
@@ -72,7 +73,7 @@ describe('Tabs', () => {
             </TabPanel>
           ))}
         </>
-      </>
+      </>,
     );
 
     const allIconsPanel = container.querySelector('#all-icons-panel');
@@ -97,7 +98,7 @@ describe('Tabs', () => {
             </TabPanel>
           ))}
         </>
-      </>
+      </>,
     );
 
     const allIconsTab = getByRole('tab', { name: /All Icons/i });

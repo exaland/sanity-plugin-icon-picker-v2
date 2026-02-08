@@ -1,5 +1,6 @@
 import decamelize from 'decamelize';
 import * as Mdi from 'react-icons/md';
+
 import { createTags } from '../utils/tags';
 import type { FormatFunction, ProviderConfiguration } from '../types';
 
@@ -17,12 +18,12 @@ const convertFormat: FormatFunction = (name, options = {}) => {
   //Separate letters followed by numbers (decamelize defaults to omitting separation of letter followed by number)
   const separateLettersPrefix = reactPrefix.replace(
     /([a-z])([0-9])/i,
-    `$1${separator}$2`
+    `$1${separator}$2`,
   );
 
   //3D is a special case which should not be decamelized as 3_d (default)
   const prefix = separateLettersPrefix.replace(/3D/, (match) =>
-    match.toLowerCase()
+    match.toLowerCase(),
   );
 
   return decamelize(prefix, separator as Parameters<typeof decamelize>[1]);

@@ -1,15 +1,21 @@
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import type AutoSizer from 'react-virtualized-auto-sizer';
+
 import { createMockIcon, createMockIconArray } from '../../test/mocks';
 import { render } from '../../test/utils';
 import SearchResults from './SearchResults';
-import type AutoSizer from 'react-virtualized-auto-sizer';
+import type React from 'react';
 
 jest.mock(
   'react-virtualized-auto-sizer',
   () =>
     ({ children }: React.ComponentProps<typeof AutoSizer>) =>
-      children({ height: 600, width: 600, scaledWidth: 600, scaledHeight: 600 })
+      children({
+        height: 600,
+        width: 600,
+        scaledWidth: 600,
+        scaledHeight: 600,
+      }),
 );
 
 describe('SearchResults', () => {
@@ -25,7 +31,7 @@ describe('SearchResults', () => {
         onSelect={mockOnSelect}
         loading
         query=""
-      />
+      />,
     );
 
     // Unable to queryByRole('progressbar), so using this ugly method instead:
@@ -50,7 +56,7 @@ describe('SearchResults', () => {
         onSelect={mockOnSelect}
         loading={false}
         query=""
-      />
+      />,
     );
 
     const iconButtons = getAllByRole('button');
@@ -66,7 +72,7 @@ describe('SearchResults', () => {
         onSelect={mockOnSelect}
         loading={false}
         query="test"
-      />
+      />,
     );
     expect(getByText('No results found for "test"')).toBeDefined();
   });
@@ -82,7 +88,7 @@ describe('SearchResults', () => {
         onSelect={mockOnSelect}
         loading={false}
         query="test"
-      />
+      />,
     );
 
     expect(getByText('No results found for "test"')).toBeDefined();
@@ -98,7 +104,7 @@ describe('SearchResults', () => {
         onSelect={mockOnSelect}
         loading={false}
         query=""
-      />
+      />,
     );
     const selectedIcon = getAllByRole('button')[0];
 

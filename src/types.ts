@@ -23,7 +23,7 @@ export type IconObjectArray = Array<IconObject>;
 export type FormatFunction = (
   name: string,
   options: IconPickerOptions,
-  reactName?: string
+  reactName?: string,
 ) => string;
 
 export interface ProviderConfiguration {

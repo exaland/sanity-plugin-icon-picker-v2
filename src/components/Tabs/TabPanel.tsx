@@ -1,4 +1,5 @@
 import { Box, Card, Heading, TabPanel as SanityTabPanel } from '@sanity/ui';
+
 import { useOptions } from '../../hooks/useOptions';
 import { configurationTitleFromProvider } from '../../utils/helpers';
 import { useTabs } from './useTabs';

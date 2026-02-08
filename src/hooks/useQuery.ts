@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
+
 import { LOADING_TIMER_MS } from '../constants';
+import type { IconObjectArray, IconPickerOptions } from '../types';
 import { getIcons } from '../utils/icons';
 import useDebouncedCallback from './useDebouncedCallback';
-import type { IconObjectArray, IconPickerOptions } from '../types';
 import type { Dispatch, SetStateAction } from 'react';
 
 interface UseQueryProps {
@@ -24,7 +25,7 @@ export const useQuery: UseQueryProps = (options) => {
 
   const debouncedFetchIcons = useDebouncedCallback(() => {
     const queryResults = icons.filter(({ name }) =>
-      name.toLowerCase().includes(query.toLowerCase())
+      name.toLowerCase().includes(query.toLowerCase()),
     );
     setResults(queryResults);
     setLoading(false);

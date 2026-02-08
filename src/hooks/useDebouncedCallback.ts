@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function useDebouncedCallback<A extends any[]>(
   callback: (...args: A) => void,
-  delay: number
+  delay: number,
 ): (...args: A) => void {
   const [timeoutId, setTimeoutId] = useState<number | null>(null);
 

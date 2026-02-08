@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
+
 import { render } from '../../test/utils';
 import SearchBar from './SearchBar';
 
@@ -25,14 +26,14 @@ describe('SearchBar', () => {
 
   it('renders correctly', () => {
     const { getByPlaceholderText } = render(
-      <SearchBar value="" onChange={mockOnChangeHandler} />
+      <SearchBar value="" onChange={mockOnChangeHandler} />,
     );
     expect(getByPlaceholderText('Search Icons')).toBeDefined();
   });
 
   it('renders value prop', () => {
     const { getByDisplayValue } = render(
-      <SearchBar value="test value" onChange={mockOnChangeHandler} />
+      <SearchBar value="test value" onChange={mockOnChangeHandler} />,
     );
     expect(getByDisplayValue('test value')).toBeDefined();
   });
@@ -44,7 +45,7 @@ describe('SearchBar', () => {
       SearchBar,
       {
         value: INITIAL_VALUE,
-      }
+      },
     );
 
     const input = getByPlaceholderText('Search Icons');
@@ -57,7 +58,7 @@ describe('SearchBar', () => {
         target: expect.objectContaining({
           value,
         }),
-      })
+      }),
     );
   });
 });

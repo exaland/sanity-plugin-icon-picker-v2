@@ -1,4 +1,5 @@
 import { TabList as SanityTabList } from '@sanity/ui';
+
 import { Tab } from './Tab';
 
 export const TabList = ({ providers }: { providers: string[] }) => {

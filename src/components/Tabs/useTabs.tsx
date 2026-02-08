@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useState } from 'react';
-import { ALL_CONFIGURATIONS_PROVIDER } from '../../constants/config';
+import { createContext, useContext, useState } from 'react';
+import type React from 'react';
 import type { ReactElement } from 'react';
+
+import { ALL_CONFIGURATIONS_PROVIDER } from '../../constants/config';
 
 interface ITabsContext {
   selectedTabId: string;
@@ -11,7 +13,7 @@ const TabsContext = createContext<ITabsContext | undefined>(undefined);
 
 export const TabsProvider = ({ children }: { children: ReactElement }) => {
   const [selectedTabId, setSelectedTabId] = useState<string>(
-    ALL_CONFIGURATIONS_PROVIDER
+    ALL_CONFIGURATIONS_PROVIDER,
   );
 
   return (

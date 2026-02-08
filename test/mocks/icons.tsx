@@ -1,4 +1,5 @@
 import { FaBeer } from 'react-icons/fa';
+
 import type { IconObject } from '../../src/types';
 
 type MockIcon = Partial<IconObject>;
@@ -13,5 +14,5 @@ export const createMockIcon = (icon: MockIcon = {}) => ({
 
 export const createMockIconArray = (
   numberOfIcons: number,
-  icon: MockIcon = {}
+  icon: MockIcon = {},
 ) => new Array(numberOfIcons).fill(null).map(() => createMockIcon(icon));

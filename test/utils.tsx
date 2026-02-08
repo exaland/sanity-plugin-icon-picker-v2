@@ -1,9 +1,9 @@
 import { ThemeProvider } from '@sanity/ui';
 import { buildTheme } from '@sanity/ui/theme';
 import { render } from '@testing-library/react';
-import React from 'react';
 import type { RenderOptions, RenderResult } from '@testing-library/react';
 import type { ReactElement } from 'react';
+import type React from 'react';
 
 interface AllProvidersProps {
   children: React.ReactNode;
@@ -28,7 +28,7 @@ const AllProviders = ({ children, innerWrapper }: AllProvidersProps) => {
 
 const customRender = (
   ui: ReactElement,
-  options: RenderOptions = {}
+  options: RenderOptions = {},
 ): RenderResult => {
   const { wrapper, ...rest } = options;
   return render(ui, {

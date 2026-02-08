@@ -39,7 +39,7 @@ export function getIcons(options: IconPickerOptions = {}): IconObjectArray {
 
   if (supportedProviders) {
     CONFIGURATIONS.filter((config) =>
-      supportedProviders.includes(config.provider)
+      supportedProviders.includes(config.provider),
     ).forEach((config) => {
       icons = [
         ...icons,

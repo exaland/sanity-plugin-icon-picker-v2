@@ -1,5 +1,6 @@
 import decamelize from 'decamelize';
 import * as Hi from 'react-icons/hi';
+
 import { createTags } from '../utils/tags';
 import type { FormatFunction, ProviderConfiguration } from '../types';
 

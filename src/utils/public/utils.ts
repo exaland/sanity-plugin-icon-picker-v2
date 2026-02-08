@@ -28,10 +28,10 @@ export const preview = ({
 export const migrateIconName = (
   name: string,
   provider: string,
-  format?: 'react'
+  format?: 'react',
 ): string => {
   const found = getIcons({ outputFormat: format }).find(
-    (icon) => icon.provider === provider && icon.tags.includes(name)
+    (icon) => icon.provider === provider && icon.tags.includes(name),
   );
 
   if (!name) {
@@ -39,7 +39,7 @@ export const migrateIconName = (
   }
   if (!found) {
     throw new Error(
-      `Icon with name ${name} for provider ${provider} not found!`
+      `Icon with name ${name} for provider ${provider} not found!`,
     );
   }
   const [reactName, defaultName] = found.tags;

@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+
 import { render } from '../../test/utils';
 import Popup from './Popup';
 
@@ -9,7 +10,7 @@ describe('Popup', () => {
     const { getByText } = render(
       <Popup onClose={mockOnClose} isOpen>
         <div>Test content</div>
-      </Popup>
+      </Popup>,
     );
     expect(getByText('Test content')).toBeDefined();
   });
@@ -18,7 +19,7 @@ describe('Popup', () => {
     const { queryByText } = render(
       <Popup onClose={mockOnClose} isOpen={false}>
         <div>Test content</div>
-      </Popup>
+      </Popup>,
     );
     expect(queryByText('Test content')).not.toBeDefined();
   });
@@ -28,7 +29,7 @@ describe('Popup', () => {
     const { getByRole } = render(
       <Popup onClose={mockOnClose} isOpen>
         <div>Test content</div>
-      </Popup>
+      </Popup>,
     );
     await user.click(getByRole('button'));
     expect(mockOnClose).toHaveBeenCalled();

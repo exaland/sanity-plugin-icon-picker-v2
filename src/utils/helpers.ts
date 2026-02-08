@@ -16,13 +16,13 @@ export function getProviders(options: IconPickerOptions = {}): string[] {
 export function getSupportedProviders(options: IconPickerOptions): string[] {
   const supportedProviders = CONFIGURATIONS.map((config) => config.provider);
   const customProviders = (options.configurations || []).map(
-    (config) => config.provider
+    (config) => config.provider,
   );
   let providers: string[] = [];
 
   if (options.providers) {
     providers = [...options.providers].filter((p) =>
-      supportedProviders.includes(p)
+      supportedProviders.includes(p),
     );
   }
 
@@ -37,17 +37,17 @@ export function getSupportedProviders(options: IconPickerOptions): string[] {
 
 export function configurationFromProvider(
   provider: string,
-  options: IconPickerOptions
+  options: IconPickerOptions,
 ): ProviderConfiguration {
   const configurations = [...CONFIGURATIONS, ...(options.configurations || [])];
   return configurations.find(
-    (config) => config.provider === provider
+    (config) => config.provider === provider,
   ) as ProviderConfiguration;
 }
 
 export const configurationTitleFromProvider = (
   provider: string,
-  options: IconPickerOptions
+  options: IconPickerOptions,
 ): string => {
   if (provider === ALL_CONFIGURATIONS_PROVIDER) return ALL_CONFIGURATIONS_TITLE;
   return configurationFromProvider(provider, options).title;
@@ -55,7 +55,7 @@ export const configurationTitleFromProvider = (
 
 export function listToMatrix(
   list: IconObjectArray,
-  elementsPerSubArray: number
+  elementsPerSubArray: number,
 ): Array<IconObjectArray> {
   const matrix: Array<IconObjectArray> = [];
 

@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+
 import { createMockIcon } from '../../test/mocks';
 import { render } from '../../test/utils';
 import Menu, { Action } from './Menu';
@@ -8,7 +9,7 @@ describe('Menu', () => {
 
   it('renders add icon button when selected is null', () => {
     const { getByText } = render(
-      <Menu onClick={mockOnClick} selected={null} />
+      <Menu onClick={mockOnClick} selected={null} />,
     );
     expect(getByText('Add icon')).toBeDefined();
   });
@@ -17,7 +18,7 @@ describe('Menu', () => {
     const selected = createMockIcon();
     const user = userEvent.setup();
     const { getByText, getByRole } = render(
-      <Menu onClick={mockOnClick} selected={selected} />
+      <Menu onClick={mockOnClick} selected={selected} />,
     );
 
     await user.click(getByRole('button'));
@@ -29,7 +30,7 @@ describe('Menu', () => {
   it('calls onClick with correct action when add icon button is clicked', async () => {
     const user = userEvent.setup();
     const { getByText } = render(
-      <Menu onClick={mockOnClick} selected={null} />
+      <Menu onClick={mockOnClick} selected={null} />,
     );
     await user.click(getByText('Add icon'));
     expect(mockOnClick).toHaveBeenCalledWith(Action.add);
@@ -39,7 +40,7 @@ describe('Menu', () => {
     const user = userEvent.setup();
     const selected = createMockIcon();
     const { getByText, getByRole } = render(
-      <Menu onClick={mockOnClick} selected={selected} />
+      <Menu onClick={mockOnClick} selected={selected} />,
     );
     await user.click(getByRole('button'));
     await user.click(getByText('Edit'));
@@ -50,7 +51,7 @@ describe('Menu', () => {
     const user = userEvent.setup();
     const selected = createMockIcon();
     const { getByText, getByRole } = render(
-      <Menu onClick={mockOnClick} selected={selected} />
+      <Menu onClick={mockOnClick} selected={selected} />,
     );
 
     await user.click(getByRole('button'));
@@ -60,7 +61,7 @@ describe('Menu', () => {
 
   it('renders disabled state when readOnly is true', () => {
     const { getByText } = render(
-      <Menu onClick={mockOnClick} selected={null} readOnly />
+      <Menu onClick={mockOnClick} selected={null} readOnly />,
     );
     expect(getByText('Add icon').closest('button')).toBeUndefined();
   });

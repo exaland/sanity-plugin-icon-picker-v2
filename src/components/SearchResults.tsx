@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import AutoSizer, { type Size } from 'react-virtualized-auto-sizer';
 import { FixedSizeList as List } from 'react-window';
 import { styled } from 'styled-components';
+
 import { ALL_CONFIGURATIONS_PROVIDER } from '../constants/config';
 import useMedia from '../hooks/useMedia';
-import { listToMatrix } from '../utils/helpers';
 import type { IconObject, IconObjectArray } from '../types';
+import { listToMatrix } from '../utils/helpers';
 import type { CSSProperties } from 'react';
 
 const Wrapper = styled.section`
@@ -16,7 +17,7 @@ const Wrapper = styled.section`
 `;
 export type SearchResultsOnSelectCallback = (
   icon: IconObject,
-  ele: HTMLButtonElement
+  ele: HTMLButtonElement,
 ) => void;
 
 interface ISearchResults {
@@ -43,7 +44,7 @@ const SearchResults = ({
     // Column counts (relates to above media queries by array index)
     [6, 4, 2],
     // Default column count
-    1
+    1,
   );
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export default function useMedia(
   queries: string[],
   values: number[],
-  defaultValue: number
+  defaultValue: number,
 ): number {
   const mediaQueryLists = queries.map((q) => window.matchMedia(q));
   const getValue = () => {

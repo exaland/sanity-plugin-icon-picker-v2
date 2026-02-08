@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import type { IconObject, IconObjectArray } from '../types';
 import type { Dispatch, SetStateAction } from 'react';
 
@@ -14,7 +15,7 @@ function getIconByValue(name: string, icons: IconObjectArray) {
 
 export const useSelectedIcon = (
   iconName: string,
-  results: IconObjectArray
+  results: IconObjectArray,
 ): UseSelectedIconResult => {
   const [selected, setSelected] = useState<IconObject | null>(null);
 

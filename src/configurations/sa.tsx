@@ -1,4 +1,5 @@
 import * as saIcons from '@sanity/icons';
+
 import { ICON_HEIGHT, ICON_WIDTH } from '../constants';
 import { createTags } from '../utils/tags';
 import type { FormatFunction, ProviderConfiguration } from '../types';
