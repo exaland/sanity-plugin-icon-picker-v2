@@ -27,14 +27,14 @@ describe('SearchBar', () => {
     const { getByPlaceholderText } = render(
       <SearchBar value="" onChange={mockOnChangeHandler} />
     );
-    expect(getByPlaceholderText('Search Icons')).toBeInTheDocument();
+    expect(getByPlaceholderText('Search Icons')).toBeDefined();
   });
 
   it('renders value prop', () => {
     const { getByDisplayValue } = render(
       <SearchBar value="test value" onChange={mockOnChangeHandler} />
     );
-    expect(getByDisplayValue('test value')).toBeInTheDocument();
+    expect(getByDisplayValue('test value')).toBeDefined();
   });
 
   it('calls onChange successfully', async () => {

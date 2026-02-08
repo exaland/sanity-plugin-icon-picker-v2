@@ -1,15 +1,18 @@
-# sanity-plugin-icon-picker
+# sanity-plugin-icon-picker-v2
 
-> This is a **Sanity Studio v3** plugin.
+> This is a **Sanity Studio v5** plugin.
+
+> Fork from
+> https://github.com/exaland/sanity-plugin-icon-picker-v2
 
 Icon picker for Sanity which let you select icons from a set of icon providers.
 
-![image](https://github.com/christopherafbjur/sanity-plugin-icon-picker/blob/main/promo.png?raw=true)
+![image](https://github.com/exaland/sanity-plugin-icon-picker-v2/blob/main/promo.png?raw=true)
 
 ## Installation
 
 ```sh
-npm install sanity-plugin-icon-picker
+npm install sanity-plugin-icon-picker-v2
 ```
 
 ## Usage
@@ -18,7 +21,7 @@ Add it as a plugin in `sanity.config.ts` (or .js):
 
 ```ts
 import { defineConfig } from 'sanity';
-import { iconPicker } from 'sanity-plugin-icon-picker';
+import { iconPicker } from 'sanity-plugin-icon-picker-v2';
 
 export default defineConfig({
   //...
@@ -158,7 +161,7 @@ import * as CarbonIcons from '@carbon/icons-react'
 In order to render the icon component as preview media, we can import a helper method.
 
 ```js
-import { preview } from 'sanity-plugin-icon-picker';
+import { preview } from 'sanity-plugin-icon-picker-v2';
 ```
 
 We can then render the icon by passing the selected name and provider to this method which will return an icon component.
@@ -184,11 +187,11 @@ We can then render the icon by passing the selected name and provider to this me
 
 ### Preview with configurations
 
-If you're using your own [configurations](https://github.com/christopherafbjur/sanity-plugin-icon-picker#configurations) you need to pass the options object to the preview parameters. Here's an example:
+If you're using your own [configurations](https://github.com/exaland/sanity-plugin-icon-picker-v2#configurations) you need to pass the options object to the preview parameters. Here's an example:
 
 ```js
 import React from 'react';
-import { preview } from 'sanity-plugin-icon-picker';
+import { preview } from 'sanity-plugin-icon-picker-v2';
 import * as CarbonIcons from '@carbon/icons-react';
 
 const options = {
@@ -239,10 +242,10 @@ export const schemaTypes = [
 ### Migrations
 
 ```js
-import { migrateIconName } from 'sanity-plugin-icon-picker';
+import { migrateIconName } from 'sanity-plugin-icon-picker-v2';
 ```
 
-We can use this function to migrate the name to a new `outputFormat`. This can be useful if you added icons in your studio and later decide that you want to use another `outputFormat`. Pass the third parameter `react` if you want to convert the name to `options.outputFormat: 'react'` naming convention. If you want to convert from `react` to default simply leave out the third parameter. Here's an [example of a migration script](https://gist.github.com/christopherafbjur/39e33e914de292fe8b5ae5cbc2ab82aa) where this function might come in handy.
+We can use this function to migrate the name to a new `outputFormat`. This can be useful if you added icons in your studio and later decide that you want to use another `outputFormat`. Pass the third parameter `react` if you want to convert the name to `options.outputFormat: 'react'` naming convention. If you want to convert from `react` to default simply leave out the third parameter. Here's an [example of a migration script](https://gist.github.com/exaland/39e33e914de292fe8b5ae5cbc2ab82aa) where this function might come in handy.
 
 ```js
 migrateIconName('alert-circle', 'fi', 'react');
@@ -256,10 +259,10 @@ migrateIconName('alert-circle', 'fi', 'react');
 Yes you can! Simply install the older version of this plugin
 
 ```sh
-npm install sanity-plugin-icon-picker@2.1.0
+npm install sanity-plugin-icon-picker-v2@2.1.0
 ```
 
-Then refer to the [old documentation](https://github.com/christopherafbjur/sanity-plugin-icon-picker/blob/72ba11830b73b729b6b3c1c254bde3c686032972/README.md) and follow everything except the install step.
+Then refer to the [old documentation](https://github.com/exaland/sanity-plugin-icon-picker-v2/blob/72ba11830b73b729b6b3c1c254bde3c686032972/README.md) and follow everything except the install step.
 
 </details>
 
@@ -268,7 +271,7 @@ Then refer to the [old documentation](https://github.com/christopherafbjur/sanit
 
 #### Example 1: Dynamically generating icon
 
-Here's a really simple example of how you could consume the data to render a Font Awesome icon from it. Note that in this example I'm using the option `outputFormat: 'react'` for the icon picker in the studio as mentioned [here](https://github.com/christopherafbjur/sanity-plugin-icon-picker#output-format).
+Here's a really simple example of how you could consume the data to render a Font Awesome icon from it. Note that in this example I'm using the option `outputFormat: 'react'` for the icon picker in the studio as mentioned [here](https://github.com/exaland/sanity-plugin-icon-picker-v2#output-format).
 
 ```js
 import * as Icons from 'react-icons/fa';
@@ -343,7 +346,7 @@ export default function App() {
 <details>
 <summary>Changing output format doesn't change the data</summary>
 
-If you start adding icons to your data with for instance no `options.outputFormat` (default) set and then later decide that you want to use `options.outputFormat: true`, your data will not automagically update. You will either have to re-select each icon in your Studio or run a migration script to update all the icons to the correct output format. Here's an [example of such a migration script](https://gist.github.com/christopherafbjur/39e33e914de292fe8b5ae5cbc2ab82aa).
+If you start adding icons to your data with for instance no `options.outputFormat` (default) set and then later decide that you want to use `options.outputFormat: true`, your data will not automagically update. You will either have to re-select each icon in your Studio or run a migration script to update all the icons to the correct output format. Here's an [example of such a migration script](https://gist.github.com/exaland/39e33e914de292fe8b5ae5cbc2ab82aa).
 
 </details>
 <details>

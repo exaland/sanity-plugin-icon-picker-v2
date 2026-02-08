@@ -16,7 +16,7 @@ const convertFormat: FormatFunction = (name, options = {}) => {
   //Separate letters followed by numbers (decamelize defaults to omitting separation of letter followed by number)
   const prefix = reactPrefix.replace(/([a-z])([0-9])/i, `$1${separator}$2`);
 
-  return decamelize(prefix, separator);
+  return decamelize(prefix, separator as Parameters<typeof decamelize>[1]);
 };
 
 const configuration: ProviderConfiguration = {

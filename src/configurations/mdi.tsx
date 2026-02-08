@@ -25,7 +25,7 @@ const convertFormat: FormatFunction = (name, options = {}) => {
     match.toLowerCase()
   );
 
-  return decamelize(prefix, separator);
+  return decamelize(prefix, separator as Parameters<typeof decamelize>[1]);
 };
 
 const configuration: ProviderConfiguration = {

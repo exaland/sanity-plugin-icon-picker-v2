@@ -5,7 +5,7 @@ export function createTags(
   name: string,
   formatFn: FormatFunction
 ): [string, string] {
-  const reactName = formatFn(name, { outputFormat: 'react' });
-  const defaultName = formatFn(name, {});
+  const reactName = String(formatFn(name, { outputFormat: 'react' }));
+  const defaultName = String(formatFn(name, {}));
   return [reactName, defaultName];
 }

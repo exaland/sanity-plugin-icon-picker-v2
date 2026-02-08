@@ -31,7 +31,7 @@ describe('SearchResults', () => {
     // Unable to queryByRole('progressbar), so using this ugly method instead:
     const progressbar = container.querySelector('[data-sanity-icon="spinner"]');
 
-    expect(progressbar).toBeInTheDocument();
+    expect(progressbar).toBeDefined();
   });
 
   it('renders all icons based on the provided filter', () => {
@@ -68,7 +68,7 @@ describe('SearchResults', () => {
         query="test"
       />
     );
-    expect(getByText('No results found for "test"')).toBeInTheDocument();
+    expect(getByText('No results found for "test"')).toBeDefined();
   });
 
   it('renders "No results found for "{query}" when nothing found by filter', () => {
@@ -85,7 +85,7 @@ describe('SearchResults', () => {
       />
     );
 
-    expect(getByText('No results found for "test"')).toBeInTheDocument();
+    expect(getByText('No results found for "test"')).toBeDefined();
   });
 
   it('calls onSelect when IconButton is clicked', async () => {

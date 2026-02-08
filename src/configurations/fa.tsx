@@ -19,7 +19,7 @@ const convertFormat: FormatFunction = (name, options = {}) => {
 
   if (SPECIAL_NAMES[prefix]) return SPECIAL_NAMES[prefix];
 
-  return decamelize(name, separator);
+  return decamelize(name, separator as Parameters<typeof decamelize>[1]);
 };
 
 const configuration: ProviderConfiguration = {

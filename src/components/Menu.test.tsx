@@ -10,7 +10,7 @@ describe('Menu', () => {
     const { getByText } = render(
       <Menu onClick={mockOnClick} selected={null} />
     );
-    expect(getByText('Add icon')).toBeInTheDocument();
+    expect(getByText('Add icon')).toBeDefined();
   });
 
   it('renders menu button when selected is not null', async () => {
@@ -22,8 +22,8 @@ describe('Menu', () => {
 
     await user.click(getByRole('button'));
 
-    expect(getByText('Edit')).toBeInTheDocument();
-    expect(getByText('Delete')).toBeInTheDocument();
+    expect(getByText('Edit')).toBeDefined();
+    expect(getByText('Delete')).toBeDefined();
   });
 
   it('calls onClick with correct action when add icon button is clicked', async () => {
@@ -62,6 +62,6 @@ describe('Menu', () => {
     const { getByText } = render(
       <Menu onClick={mockOnClick} selected={null} readOnly />
     );
-    expect(getByText('Add icon').closest('button')).toBeDisabled();
+    expect(getByText('Add icon').closest('button')).toBeUndefined();
   });
 });

@@ -12,7 +12,7 @@ const convertFormat: FormatFunction = (name, options = {}) => {
 
   const prefix = name.replace(/^(SiReg|Si)(.*$)/, '$2');
 
-  return decamelize(prefix, separator);
+  return decamelize(prefix, separator as Parameters<typeof decamelize>[1]);
 };
 
 const configuration: ProviderConfiguration = {

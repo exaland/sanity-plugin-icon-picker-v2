@@ -2,6 +2,7 @@ import { defineField, definePlugin } from 'sanity';
 import IconPicker from './components/IconPicker';
 export * from './utils/public/utils';
 
+/** @public */
 export const iconPicker = definePlugin(() => {
   return {
     name: 'sanity-plugin-icon-picker',

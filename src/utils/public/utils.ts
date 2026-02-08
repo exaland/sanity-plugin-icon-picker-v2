@@ -7,6 +7,7 @@ type Preview = Pick<IconObject, 'provider' | 'name'> & {
   options?: IconPickerOptions;
 };
 // eslint-disable-next-line react/display-name
+/** @public */
 export const preview = ({
   provider,
   name,
@@ -23,6 +24,7 @@ export const preview = ({
   return found?.component() || null;
 };
 
+/** @public */
 export const migrateIconName = (
   name: string,
   provider: string,

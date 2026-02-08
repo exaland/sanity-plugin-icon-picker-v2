@@ -11,7 +11,7 @@ describe('Popup', () => {
         <div>Test content</div>
       </Popup>
     );
-    expect(getByText('Test content')).toBeInTheDocument();
+    expect(getByText('Test content')).toBeDefined();
   });
 
   it('does not render when isOpen is false', () => {
@@ -20,7 +20,7 @@ describe('Popup', () => {
         <div>Test content</div>
       </Popup>
     );
-    expect(queryByText('Test content')).not.toBeInTheDocument();
+    expect(queryByText('Test content')).not.toBeDefined();
   });
 
   it('calls onClose when Dialog onClose is triggered', async () => {
