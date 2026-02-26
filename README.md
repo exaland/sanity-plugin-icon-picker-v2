@@ -1,12 +1,13 @@
-
 # sanity-plugin-icon-picker-v2
+
+![License: MIT License](https://img.shields.io/badge/License-mit-blue.svg)
 
 > This is a **Sanity Studio v5** plugin.
 
 > Fork from
 > https://github.com/christopherafbjur/sanity-plugin-icon-picker
-> 
-Icon picker for Sanity which let you select icons from a set of icon providers.
+>
+> Icon picker for Sanity which let you select icons from a set of icon providers.
 
 ![image](https://github.com/exaland/sanity-plugin-icon-picker-v2/blob/main/promo.png?raw=true)
 
