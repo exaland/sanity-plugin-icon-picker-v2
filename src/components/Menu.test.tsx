@@ -3,9 +3,10 @@ import userEvent from '@testing-library/user-event';
 import { createMockIcon } from '../../test/mocks';
 import { render } from '../../test/utils';
 import Menu, { Action } from './Menu';
+import { vi } from 'vitest';
 
 describe('Menu', () => {
-  const mockOnClick = jest.fn();
+  const mockOnClick = vi.fn();
 
   it('renders add icon button when selected is null', () => {
     const { getByText } = render(
@@ -63,6 +64,6 @@ describe('Menu', () => {
     const { getByText } = render(
       <Menu onClick={mockOnClick} selected={null} readOnly />,
     );
-    expect(getByText('Add icon').closest('button')).toBeUndefined();
+    expect(getByText('Add icon').closest('button')).toHaveAttribute('disabled');
   });
 });

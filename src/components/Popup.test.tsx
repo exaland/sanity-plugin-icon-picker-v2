@@ -2,9 +2,10 @@ import userEvent from '@testing-library/user-event';
 
 import { render } from '../../test/utils';
 import Popup from './Popup';
+import { vi } from 'vitest';
 
 describe('Popup', () => {
-  const mockOnClose = jest.fn();
+  const mockOnClose = vi.fn();
 
   it('renders correctly when isOpen is true', () => {
     const { getByText } = render(
@@ -21,7 +22,7 @@ describe('Popup', () => {
         <div>Test content</div>
       </Popup>,
     );
-    expect(queryByText('Test content')).not.toBeDefined();
+    expect(queryByText('Test content')).toBeNull();
   });
 
   it('calls onClose when Dialog onClose is triggered', async () => {
