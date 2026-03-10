@@ -5,21 +5,20 @@ import { createMockIcon, createMockIconArray } from '../../test/mocks';
 import { render } from '../../test/utils';
 import SearchResults from './SearchResults';
 import type React from 'react';
+import { vi } from 'vitest';
 
-jest.mock(
-  'react-virtualized-auto-sizer',
-  () =>
-    ({ children }: React.ComponentProps<typeof AutoSizer>) =>
-      children({
-        height: 600,
-        width: 600,
-        scaledWidth: 600,
-        scaledHeight: 600,
-      }),
-);
+vi.mock('react-virtualized-auto-sizer', () => ({
+  default: ({ children }: React.ComponentProps<typeof AutoSizer>) =>
+    children({
+      height: 600,
+      width: 600,
+      scaledWidth: 600,
+      scaledHeight: 600,
+    }),
+}));
 
 describe('SearchResults', () => {
-  const mockOnSelect = jest.fn();
+  const mockOnSelect = vi.fn();
   const results = [...createMockIconArray(2)];
   const selected = createMockIcon();
 

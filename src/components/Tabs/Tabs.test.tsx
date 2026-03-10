@@ -80,9 +80,9 @@ describe('Tabs', () => {
     const f7Panel = container.querySelector('#f7-panel');
     const saPanel = container.querySelector('#sa-panel');
 
-    expect(allIconsPanel).not.toHaveProperty('hidden');
-    expect(f7Panel).toHaveProperty('hidden');
-    expect(saPanel).toHaveProperty('hidden');
+    expect(allIconsPanel).toHaveProperty('hidden', false);
+    expect(f7Panel).toHaveProperty('hidden', true);
+    expect(saPanel).toHaveProperty('hidden', true);
   });
   it('displays and hides the correct tab-panels based on the selected list-tab', async () => {
     const user = userEvent.setup();
@@ -109,19 +109,23 @@ describe('Tabs', () => {
     const f7Panel = container.querySelector('#f7-panel');
     const saPanel = container.querySelector('#sa-panel');
 
+    expect(allIconsPanel).toHaveProperty('hidden', false);
+    expect(f7Panel).toHaveProperty('hidden', true);
+    expect(saPanel).toHaveProperty('hidden', true);
+
     await user.click(f7Tab);
-    expect(allIconsPanel).toHaveProperty('hidden');
-    expect(f7Panel).not.toHaveProperty('hidden');
-    expect(saPanel).toHaveProperty('hidden');
+    expect(allIconsPanel).toHaveProperty('hidden', true);
+    expect(f7Panel).toHaveProperty('hidden', false);
+    expect(saPanel).toHaveProperty('hidden', true);
 
     await user.click(saTab);
-    expect(allIconsPanel).toHaveProperty('hidden');
-    expect(f7Panel).toHaveProperty('hidden');
-    expect(saPanel).not.toHaveProperty('hidden');
+    expect(allIconsPanel).toHaveProperty('hidden', true);
+    expect(f7Panel).toHaveProperty('hidden', true);
+    expect(saPanel).toHaveProperty('hidden', false);
 
     await user.click(allIconsTab);
-    expect(allIconsPanel).not.toHaveProperty('hidden');
-    expect(f7Panel).toHaveProperty('hidden');
-    expect(saPanel).toHaveProperty('hidden');
+    expect(allIconsPanel).toHaveProperty('hidden', false);
+    expect(f7Panel).toHaveProperty('hidden', true);
+    expect(saPanel).toHaveProperty('hidden', true);
   });
 });

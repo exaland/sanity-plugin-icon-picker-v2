@@ -3,13 +3,14 @@ import { useState } from 'react';
 
 import { render } from '../../test/utils';
 import SearchBar from './SearchBar';
+import { vi } from 'vitest';
 
 function renderControlledComponent(FormComponent: any, props: any) {
   let mockOnChange;
   function TestEnvironment() {
     const [value, setValue] = useState(props.value);
 
-    mockOnChange = jest.fn((e) => setValue(e.target.value));
+    mockOnChange = vi.fn((e) => setValue(e.target.value));
 
     return <FormComponent value={value} onChange={mockOnChange} />;
   }
@@ -22,7 +23,7 @@ function renderControlledComponent(FormComponent: any, props: any) {
 
 describe('SearchBar', () => {
   const INITIAL_VALUE = 'test123';
-  const mockOnChangeHandler = jest.fn();
+  const mockOnChangeHandler = vi.fn();
 
   it('renders correctly', () => {
     const { getByPlaceholderText } = render(

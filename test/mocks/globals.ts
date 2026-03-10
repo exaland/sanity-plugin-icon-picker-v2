@@ -1,20 +1,24 @@
+import { vi } from 'vitest';
+
 export const setupGlobalResizeObserver = (): void => {
-  global.ResizeObserver = jest.fn().mockImplementation(() => ({
-    disconnect: jest.fn(),
-    observe: jest.fn(),
-    unobserve: jest.fn(),
-  }));
+  global.ResizeObserver = vi.fn().mockImplementation(function () {
+    return {
+      disconnect: vi.fn(),
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+    };
+  });
 };
 
 export const setupGlobalMatchMedia = (): void => {
-  global.matchMedia = jest.fn().mockImplementation((query) => ({
+  global.matchMedia = vi.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
   }));
 };
