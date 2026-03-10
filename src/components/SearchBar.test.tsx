@@ -1,18 +1,23 @@
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
+import type { ChangeEvent } from 'react';
 
 import { render } from '../../test/utils';
 import SearchBar from './SearchBar';
 import { vi } from 'vitest';
 
-function renderControlledComponent(FormComponent: any, props: any) {
-  let mockOnChange;
+function renderControlledComponent(props: { value: string }) {
+  const mockOnChange = vi.fn<(e: ChangeEvent<HTMLInputElement>) => void>();
+
   function TestEnvironment() {
     const [value, setValue] = useState(props.value);
 
-    mockOnChange = vi.fn((e) => setValue(e.target.value));
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+      mockOnChange(e);
+    };
 
-    return <FormComponent value={value} onChange={mockOnChange} />;
+    return <SearchBar value={value} onChange={handleChange} />;
   }
 
   return {
@@ -42,12 +47,9 @@ describe('SearchBar', () => {
   it('calls onChange successfully', async () => {
     const value = 'user123';
     const user = userEvent.setup();
-    const { mockOnChange, getByPlaceholderText } = renderControlledComponent(
-      SearchBar,
-      {
-        value: INITIAL_VALUE,
-      },
-    );
+    const { mockOnChange, getByPlaceholderText } = renderControlledComponent({
+      value: INITIAL_VALUE,
+    });
 
     const input = getByPlaceholderText('Search Icons');
 

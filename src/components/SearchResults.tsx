@@ -1,5 +1,5 @@
 import { Button, Flex, Grid, Spinner, Text } from '@sanity/ui';
-import { useEffect, useRef, useState } from 'react';
+import { useMemo } from 'react';
 import AutoSizer, { type Size } from 'react-virtualized-auto-sizer';
 import { FixedSizeList as List } from 'react-window';
 import { styled } from 'styled-components';
@@ -9,6 +9,7 @@ import useMedia from '../hooks/useMedia';
 import type { IconObject, IconObjectArray } from '../types';
 import { listToMatrix } from '../utils/helpers';
 import type { CSSProperties } from 'react';
+import type { MouseEvent } from 'react';
 
 const Wrapper = styled.section`
   min-height: 200px;
@@ -37,7 +38,6 @@ const SearchResults = ({
   loading,
   query,
 }: ISearchResults) => {
-  const [filtered, setFiltered] = useState<IconObjectArray[]>([]);
   const COLUMNS_COUNT = useMedia(
     // Media queries
     ['(min-width: 960px)', '(min-width: 640px)', '(min-width: 512px)'],
@@ -47,29 +47,23 @@ const SearchResults = ({
     1,
   );
 
-  useEffect(() => {
-    updateIcons(COLUMNS_COUNT);
-  }, [results]);
+  const filtered = useMemo(() => {
+    const icons =
+      !filter || filter === ALL_CONFIGURATIONS_PROVIDER
+        ? results
+        : results.filter((item) => item.provider === filter);
 
-  const getFiltered = (items: IconObjectArray) => {
-    if (!filter || filter === ALL_CONFIGURATIONS_PROVIDER) return items;
-    return items.filter((item) => item.provider === filter);
-  };
-  function updateIcons(cols: number) {
-    const icons = getFiltered(results);
-    const mappedIcons = listToMatrix(Object.values(icons), cols);
-    setFiltered(mappedIcons);
-  }
+    return listToMatrix(Object.values(icons), COLUMNS_COUNT);
+  }, [COLUMNS_COUNT, filter, results]);
 
   const createIconButton = (icon: IconObject) => {
-    const buttonRef = useRef<HTMLButtonElement>(null);
-
     return (
       <Button
-        ref={buttonRef} // <--here
         key={icon.provider.concat(icon.name)}
         mode="ghost"
-        onClick={() => onSelect(icon, buttonRef.current!)}
+        onClick={(event: MouseEvent<HTMLButtonElement>) =>
+          onSelect(icon, event.currentTarget)
+        }
         text={<icon.component />}
         style={{ marginTop: '5px' }}
         selected={
@@ -94,10 +88,6 @@ const SearchResults = ({
     );
   };
 
-  const onResize = () => {
-    updateIcons(COLUMNS_COUNT);
-  };
-
   return (
     <Wrapper>
       {loading && (
@@ -110,7 +100,7 @@ const SearchResults = ({
         </Flex>
       )}
       {!loading && !!filtered.length && (
-        <AutoSizer onResize={onResize}>
+        <AutoSizer>
           {({ height, width }: Size) => (
             <List
               height={height}

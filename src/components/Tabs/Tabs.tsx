@@ -1,7 +1,6 @@
 import { Box, Container } from '@sanity/ui';
-import { TabsProvider } from './useTabs';
 import type { ReactNode } from 'react';
-
+import { TabsProvider } from './useTabs';
 
 export const Tabs = ({ children }: { children: ReactNode }) => {
   return (

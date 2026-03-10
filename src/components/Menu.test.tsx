@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 
 import { createMockIcon } from '../../test/mocks';
 import { render } from '../../test/utils';

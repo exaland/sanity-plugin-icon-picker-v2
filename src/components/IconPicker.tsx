@@ -29,18 +29,20 @@ const IconPicker = ({
   const options: IconPickerOptions = schemaType.options;
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { query, loading, results, setQuery } = useQuery(options);
-  const { selected, setSelected } = useSelectedIcon(value.name, results);
+  const { selected } = useSelectedIcon(value.name, results);
 
   const unsetIcon = () => {
     onChange(unset());
-    setSelected(null);
   };
 
   const setIcon: SearchResultsOnSelectCallback = (
     icon: IconObject,
     ele: HTMLButtonElement,
   ) => {
-    if (selected && icon.name === selected.name) return unsetIcon();
+    if (selected && icon.name === selected.name) {
+      unsetIcon();
+      return;
+    }
 
     const getSvgString = () => ele.getElementsByTagName('svg')[0].outerHTML;
 
@@ -54,8 +56,6 @@ const IconPicker = ({
         ? set(getSvgString(), ['svg'])
         : unset(['svg']),
     ]);
-
-    return setSelected(icon);
   };
 
   const openPopup = () => {

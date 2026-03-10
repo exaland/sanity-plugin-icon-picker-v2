@@ -1,17 +1,16 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 
-export default function useDebouncedCallback<A extends any[]>(
+export default function useDebouncedCallback<A extends unknown[]>(
   callback: (...args: A) => void,
   delay: number,
 ): (...args: A) => void {
-  const [timeoutId, setTimeoutId] = useState<number | null>(null);
+  const timeoutIdRef = useRef<number | null>(null);
 
   return (...args: A) => {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
+    if (timeoutIdRef.current !== null) {
+      clearTimeout(timeoutIdRef.current);
     }
 
-    const id = window.setTimeout(() => callback(...args), delay);
-    setTimeoutId(id);
+    timeoutIdRef.current = window.setTimeout(() => callback(...args), delay);
   };
 }
