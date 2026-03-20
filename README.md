@@ -1,6 +1,6 @@
 # sanity-plugin-icon-picker-v2
 
-![License: MIT License](https://img.shields.io/badge/License-mit-blue.svg)
+![License: MIT License](https://img.shields.io/badge/License-mit-blue.svg) [![Publish NPM Package](https://github.com/exaland/sanity-plugin-icon-picker-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/exaland/sanity-plugin-icon-picker-v2/actions/workflows/ci.yml)
 
 > This is a **Sanity Studio v5** plugin.
 
