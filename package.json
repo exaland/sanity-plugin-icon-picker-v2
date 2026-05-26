@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-icon-picker-v2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An Icon Picker plugin for Sanity",
   "keywords": [
     "sanity",
@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@sanity/incompatible-plugin": "^1.0.4",
-    "@sanity/ui": "^3.1.11",
+    "@sanity/ui": "^3.2.0",
     "decamelize": "6.0.1",
     "framework7-icons": "^5.0.5",
     "react-icons": "^5.6.0",
@@ -69,13 +69,13 @@
     "styled-components": "^6.3.8"
   },
   "devDependencies": {
-    "@sanity/pkg-utils": "^10.4.4",
+    "@sanity/pkg-utils": "^10.5.0",
     "@sanity/plugin-kit": "^4.0.20",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
-    "@types/react": "^18.0.28 || ^19.0.0",
+    "@types/react": "^18.0.28 || ^19.2.15",
     "@types/react-virtualized-auto-sizer": "^1.0.8",
     "@types/react-window": "^1.8.6",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
@@ -101,14 +101,14 @@
     "react-is": "^19.0.0",
     "rimraf": "^6.1.2",
     "ts-node": "^10.9.1",
-    "typescript": "^.2",
+    "typescript": "^5.2.2",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-is": "19.2.4",
-    "sanity": "^.1"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-is": "^19.2.6",
+    "sanity": "^5.26.0"
   },
   "engines": {
     "node": ">=18"
