@@ -58,7 +58,6 @@
     "watch": "pkg-utils watch --strict"
   },
   "dependencies": {
-    "@sanity/incompatible-plugin": "^1.0.4",
     "@sanity/ui": "^3.1.11",
     "decamelize": "6.0.1",
     "framework7-icons": "^5.0.5",
