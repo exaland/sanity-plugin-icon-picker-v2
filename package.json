@@ -37,10 +37,7 @@
   "types": "./dist/index.esm.d.ts",
   "type": "module",
   "files": [
-    "dist",
-    "sanity.json",
-    "src",
-    "v2-incompatible.js"
+    "dist"
   ],
   "scripts": {
     "build": "run-s clean && plugin-kit verify-package --silent && pkg-utils build --strict && pkg-utils --strict",
@@ -114,7 +111,9 @@
   "sanityExchangeUrl": "https://www.sanity.io/plugins/icon-picker-v2",
   "sanityPlugin": {
     "verifyPackage": {
-      "scripts": false
+      "scripts": false,
+       "bannedFiles": false,
+       "esmOnly": false
     }
   }
 }
