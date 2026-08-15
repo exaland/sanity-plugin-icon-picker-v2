@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-icon-picker-v2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An Icon Picker plugin for Sanity",
   "keywords": [
     "sanity",
@@ -106,14 +106,14 @@
     "react-is": "19.2.4"
   },
   "engines": {
-  "node": ">=20.19 <22 || >=22.12"
+    "node": ">=20.19 <22 || >=22.12"
   },
   "sanityExchangeUrl": "https://www.sanity.io/plugins/icon-picker-v2",
   "sanityPlugin": {
     "verifyPackage": {
       "scripts": false,
-       "bannedFiles": false,
-       "esmOnly": false
+      "bannedFiles": false,
+      "esmOnly": false
     }
   }
 }
